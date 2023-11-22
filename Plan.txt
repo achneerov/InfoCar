@@ -28,7 +28,8 @@ https://vhr.carfax.ca/?id=/BKZwwiMWvgBNma08mm5JIxHLWpkn+y2
 
 this to check if it was ever deemed irreparable:
 https://www.ibc.ca/industry-resources/insurance-data-tools/vin-verify
-idk if it works tho lol
+idk if it works
+also i had trouble pulling from it
 
 this to get name, year, make, where it was manufactured
 https://www.carfax.ca/vin-decode?vin=3FADP4AJ2FM124603
@@ -54,3 +55,9 @@ https://www.donneesquebec.ca/recherche/fr/dataset/rapports-d-accident
 good examples:
 accident + rebuilt
 https://vhr.carfax.ca/?id=AufES1OypB+BGdP/7hkA4ANl7Z/oFBMA
+
+ICBC info not included
+https://vhr.carfax.ca/?id=vW+qa3yAhXVwP7Zs+9f8kjprz8qBphK8#accident-damage-section
+
+4 open recalls
+https://vhr.carfax.ca/?id=A5OA5ynQ+KJu1j2rFWdckpOmnqR4Cny5

@@ -1,11 +1,12 @@
 import requests
 
 def registration_arr(vin):
+    '''
     url = 'https://www.ibc.ca/industry-resources/insurance-data-tools/vin-verify'
     
-    # Assuming "Enter the VIN." is the name of the input field
+    # Assuming "vin_number" is the name of the input field
     data = {
-        'Enter the VIN.': vin,
+        'vin_number': vin,
         # Add other form fields if needed
     }
 
@@ -26,8 +27,7 @@ def registration_arr(vin):
 
     except requests.RequestException as e:
         print(f"Request failed: {e}")
+    '''
 
     return ["2022", "Registered"]
 
-# Example usage
-#registration_arr("your_vin_here")

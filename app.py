@@ -22,7 +22,7 @@ def generate_report():
     p1 = accident_damage_arr(vin)
     p2 = registration_arr(vin)
     p3 = service_records_arr(vin)
-    p4 = open_recalls_arr(vin)
+    p4 = open_recalls_arr(vin, p0[1])
     p5 = stolen_vehicle_arr(vin)
     p6 = detailed_history_arr(vin)
 
