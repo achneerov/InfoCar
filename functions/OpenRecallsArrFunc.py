@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 
-def open_recalls_arr(VIN, make, province="ON"):
+def open_recalls_arr(VIN, make):
     make = make.lower()
 
     if make == "hyundai":
@@ -29,32 +29,19 @@ def open_recalls_arr(VIN, make, province="ON"):
 
             # Handle region/language popup
             try:
-                region_popup = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'your_region_popup_id_here')))
+                region_popup = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, 'province-selector-form-container-formelements-submit')))
                 region_popup.click()
             except Exception as e:
                 print(f"Error handling region/language popup: {str(e)}")
 
             # Find the input field with the specific class and id
-            target_input_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.op-recalls__vin-input#recallsVIN')))
+            vin_input = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'recallsVIN')))
 
             # Set the VIN in the input field
-            target_input_field.send_keys(VIN)
+            vin_input.send_keys(VIN)
 
-            # Submit the form
-            target_input_field.submit()
-
-            # Wait for 15 seconds after the form submission (you may need to adjust the sleep duration)
-            time.sleep(15)
-
-            # Choose a language and province
-            language_radio = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'input-english')))
-            language_radio.click()
-
-            province_select = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'formelement-select-provice')))
-            province_select.send_keys(province)
-
-            # Click the "Submit" button
-            submit_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '//form[@id="proviceSelectorForm"]//button[@type="submit"]')))
+            # Locate the form and submit it
+            submit_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, 'op-cta')))
             submit_button.click()
 
             # Wait for 15 seconds after clicking the submit button (you may need to adjust the sleep duration)
@@ -68,6 +55,7 @@ def open_recalls_arr(VIN, make, province="ON"):
 
             # Print the entire HTML content of the page
             print(soup.prettify())
+
 
         except Exception as e:
             print(f"An error occurred: {str(e)}")
