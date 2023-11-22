@@ -10,18 +10,6 @@
             margin: 20px;
         }
 
-        .report-header {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .report-section {
-            margin-top: 20px;
-        }
-
-        .service-records {
-            margin-top: 10px;
-        }
     </style>
 </head>
 <body>
@@ -33,57 +21,11 @@
         </form>
     </div>
     <div class="report-header">
-        <p id="reportDate">Report Date: Click Generate</p>
-    </div>
-
-    <div class="report-section" id="yearMakeModelSection">
-        <h2>CLICK GENERATE</h2>
-        <p>Hatchback, 4 Cylinders, Gas</p>
-        <p>Vehicle Identification Number: JM1DE1HY9B0101995</p>
-        <p>Country of Assembly: Japan</p>
-        <p>Last Reported Odometer: 168,899 KM</p>
-    </div>
-
-    <div class="report-section" id="accidentDamageSection">
-        <h2>Accident/Damage Records Found</h2>
-        <p>Last Registered In: Québec (Rebuilt/Rebuildable)</p>
-        <p>18 Service Records Found</p>
-        <p>No U.S. History Found</p>
-        <p>No Open Recalls Found</p>
-        <p>Not Actively Declared Stolen</p>
-        <p>No Import Record Found</p>
-    </div>
-
-    <div class="report-section service-records" id="serviceRecordsSection">
-        <h2>Service Records</h2>
-        <!-- Insert the service records here -->
-    </div>
-
-    <div class="report-section" id="openRecallsSection">
-        <h2>Open Recalls</h2>
-        <p>No safety recall information available as of the date/time that this report was generated. For additional safety recall information and non-safety related recall campaigns, please contact MAZDA or visit Mazda's website.</p>
-    </div>
-
-    <div class="report-section" id="stolenVehicleSection">
-        <h2>Stolen Vehicle Check</h2>
-        <p>This vehicle is not actively declared stolen.</p>
-    </div>
-
-    <div class="report-section" id="detailedHistorySection">
-        <h2>Detailed History</h2>
-        <!-- Insert the detailed history here -->
-    </div>
-
-    <div class="report-section">
-        <p>Questions? We're here to help. Customer Support | FAQ & Glossary</p>
-        <p>This vehicle history report is compiled from multiple data sources...</p>
-        <p>© 2023 CARFAX Canada ULC. All rights reserved.</p>
+        <p id="Example">JM1DE1HY9B0101995</p>
     </div>
     <script>
         function generateReport() {
             let VIN = document.getElementById('vinInput').value;
-    
-            // Make an AJAX request to the Flask server
             fetch('/generate_report', {
                 method: 'POST',
                 headers: {
@@ -93,33 +35,11 @@
                     'vin': VIN,
                 }),
             })
-            .then(response => response.json())
             .then(data => {
-                // Update the HTML with the result
-                document.getElementById('reportDate').innerHTML = `Report Date: ${new Date().toLocaleString()}`;
-                document.getElementById('yearMakeModelSection').innerHTML = `<h2>${data.result.YearMakeModel[0]} ${data.result.YearMakeModel[1]} ${data.result.YearMakeModel[2]}</h2>`;
-                document.getElementById('accidentDamageSection').innerHTML = `<h2>Accident/Damage Records Found</h2>
-                    <p>Last Registered In: ${data.result.AccidentDamage[0]}</p>
-                    <p>${data.result.AccidentDamage[1]}</p>
-                    <p>${data.result.AccidentDamage[2]}</p>
-                    <p>${data.result.AccidentDamage[3]}</p>
-                    <p>${data.result.AccidentDamage[4]}</p>
-                    <p>${data.result.AccidentDamage[5]}</p>`;
-                document.getElementById('serviceRecordsSection').innerHTML = `<h2>Service Records</h2>
-                    <!-- Insert the service records here -->`;
-                document.getElementById('openRecallsSection').innerHTML = `<h2>Open Recalls</h2>
-                    <p>${data.result.OpenRecalls}</p>`;
-                document.getElementById('stolenVehicleSection').innerHTML = `<h2>Stolen Vehicle Check</h2>
-                    <p>${data.result.StolenVehicleCheck}</p>`;
-                document.getElementById('detailedHistorySection').innerHTML = `<h2>Detailed History</h2>
-                    <!-- Insert the detailed history here -->`;
-    
-                // Redirect to a new page with the VIN as the URL
                 window.location.href = `/${VIN}`;
             })
             .catch(error => console.error('Error:', error));
         }
     </script>
-    
 </body>
 </html>

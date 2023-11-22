@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 
-from YearMakeModelArrFunc import year_make_model_arr
-from AccidentDamageArrFunc import accident_damage_arr
-from RegistrationArrFunc import registration_arr
-from ServiceRecordsArrFunc import service_records_arr
-from OpenRecallsArrFunc import open_recalls_arr
-from StolenVehicleArrFunc import stolen_vehicle_arr
-from DetailedHistoryArrFunc import detailed_history_arr
+from functions.YearMakeModelArrFunc import year_make_model_arr
+from functions.AccidentDamageArrFunc import accident_damage_arr
+from functions.RegistrationArrFunc import registration_arr
+from functions.ServiceRecordsArrFunc import service_records_arr
+from functions.OpenRecallsArrFunc import open_recalls_arr
+from functions.StolenVehicleArrFunc import stolen_vehicle_arr
+from functions.DetailedHistoryArrFunc import detailed_history_arr
 
 app = Flask(__name__)
 

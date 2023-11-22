@@ -1,26 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Example</title>
-</head>
-<body>
-    <p>This is an example of a simple HTML page with one paragraph.</p>
-
-    <script>
-        // Function to get the value after the first slash in the URL path
-        function getValueFromPath() {
-            const pathSegments = window.location.pathname.split('/');
-            return pathSegments[1]; // Assumes the value is immediately after the first slash
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle History Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
         }
 
-        // Get the value from the URL path
-        const value = getValueFromPath();
+        .report-header {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
 
-        // Print the value
-        if (value) {
-            document.write('<p>Value: ' + value + '</p>');
-        } else {
-            document.write('<p>No value found in the URL path.</p>');
+        .report-section {
+            margin-top: 20px;
+        }
+
+        .service-records {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="report-header" id="reportDate">
+        <!-- Display report date here -->
+    </div>
+
+    <div class="report-section" id="yearMakeModelSection">
+        <!-- Display year, make, and model here -->
+    </div>
+
+    <div class="report-section" id="accidentDamageSection">
+        <!-- Display accident/damage records here -->
+    </div>
+
+    <div class="report-section service-records" id="serviceRecordsSection">
+        <!-- Display service records here -->
+    </div>
+
+    <div class="report-section" id="openRecallsSection">
+        <!-- Display open recalls here -->
+    </div>
+
+    <div class="report-section" id="stolenVehicleSection">
+        <!-- Display stolen vehicle check here -->
+    </div>
+
+    <div class="report-section" id="detailedHistorySection">
+        <!-- Display detailed history here -->
+    </div>
+
+    <script>
+        window.onload = function() {
+            const vinFromUrl = window.location.pathname.split('/').pop();
+            if (vinFromUrl) {
+                generateReport(vinFromUrl);
+            }
+        };
+
+        function generateReport(VIN) {
+            // Make an AJAX request to the Flask server
+            fetch('/generate_report', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    'vin': VIN,
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('reportDate').innerHTML = `Report Date: ${new Date().toLocaleString()}`;
+                document.getElementById('yearMakeModelSection').innerHTML = `<h2>${data.result.YearMakeModel.join(' ')}</h2>`;
+                document.getElementById('accidentDamageSection').innerHTML = `<h2>Accident/Damage Records</h2>
+                    ${data.result.AccidentDamage.map(record => `<p>${record}</p>`).join('')}`;
+                document.getElementById('serviceRecordsSection').innerHTML = `<h2>Service Records</h2>
+                    <p>${data.result.ServiceRecords}</p>`;
+                document.getElementById('openRecallsSection').innerHTML = `<h2>Open Recalls</h2>
+                    <p>${data.result.OpenRecalls}</p>`;
+                document.getElementById('stolenVehicleSection').innerHTML = `<h2>Stolen Vehicle Check</h2>
+                    <p>${data.result.StolenVehicleCheck}</p>`;
+                document.getElementById('detailedHistorySection').innerHTML = `<h2>Detailed History</h2>
+                    <p>${data.result.DetailedHistory}</p>`;
+            })
+            .catch(error => console.error('Error:', error));
         }
     </script>
 </body>
