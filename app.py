@@ -38,10 +38,10 @@ def generate_report():
 
     return jsonify(result=result)
 
-@app.route('/')
-def report_by_vin():
-    vin = request.args.get('vin')
+@app.route('/<vin>')
+def report_by_vin(vin):
     return render_template('report.html', vin=vin)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
