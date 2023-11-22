@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="robots" content="noindex, follow"/>
+        <!-- Hotjar Tracking Code for Vehicle History Report -->
+        <script>
+            (function(h, o, t, j, a, r) {
+                h.hj = h.hj || function() {
+                    (h.hj.q = h.hj.q || []).push(arguments)
+                }
+                ;
+                h._hjSettings = {
+                    hjid: 3439300,
+                    hjsv: 6
+                };
+                a = o.getElementsByTagName('head')[0];
+                r = o.createElement('script');
+                r.async = 1;
+                r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                a.appendChild(r);
+            }
+            )(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+        </script>
+        <!-- Hotjar end Prod-->
+        <title>CARFAX Canada Vehicle History Reports</title>
+        <script type="text/javascript">
+            !function(T, l, y) {
+                var S = T.location
+                  , k = "script"
+                  , D = "instrumentationKey"
+                  , C = "ingestionendpoint"
+                  , I = "disableExceptionTracking"
+                  , E = "ai.device."
+                  , b = "toLowerCase"
+                  , w = "crossOrigin"
+                  , N = "POST"
+                  , e = "appInsightsSDK"
+                  , t = y.name || "appInsights";
+                (y.name || T[e]) && (T[e] = t);
+                var n = T[t] || function(d) {
+                    var g = !1
+                      , f = !1
+                      , m = {
+                        initialize: !0,
+                        queue: [],
+                        sv: "5",
+                        version: 2,
+                        config: d
+                    };
+                    function v(e, t) {
+                        var n = {}
+                          , a = "Browser";
+                        return n[E + "id"] = a[b](),
+                        n[E + "type"] = a,
+                        n["ai.operation.name"] = S && S.pathname || "_unknown_",
+                        n["ai.internal.sdkVersion"] = "javascript:snippet_" + (m.sv || m.version),
+                        {
+                            time: function() {
+                                var e = new Date;
+                                function t(e) {
+                                    var t = "" + e;
+                                    return 1 === t.length && (t = "0" + t),
+                                    t
+                                }
+                                return e.getUTCFullYear() + "-" + t(1 + e.getUTCMonth()) + "-" + t(e.getUTCDate()) + "T" + t(e.getUTCHours()) + ":" + t(e.getUTCMinutes()) + ":" + t(e.getUTCSeconds()) + "." + ((e.getUTCMilliseconds() / 1e3).toFixed(3) + "").slice(2, 5) + "Z"
+                            }(),
+                            iKey: e,
+                            name: "Microsoft.ApplicationInsights." + e.replace(/-/g, "") + "." + t,
+                            sampleRate: 100,
+                            tags: n,
+                            data: {
+                                baseData: {
+                                    ver: 2
+                                }
+                            }
+                        }
+                    }
+                    var h = d.url || y.src;
+                    if (h) {
+                        function a(e) {
+                            var t, n, a, i, r, o, s, c, u, p, l;
+                            g = !0,
+                            m.queue = [],
+                            f || (f = !0,
+                            t = h,
+                            s = function() {
+                                var e = {}
+                                  , t = d.connectionString;
+                                if (t)
+                                    for (var n = t.split(";"), a = 0; a < n.length; a++) {
+                                        var i = n[a].split("=");
+                                        2 === i.length && (e[i[0][b]()] = i[1])
+                                    }
+                                if (!e[C]) {
+                                    var r = e.endpointsuffix
+                                      , o = r ? e.location : null;
+                                    e[C] = "https://" + (o ? o + "." : "") + "dc." + (r || "services.visualstudio.com")
+                                }
+                                return e
+                            }(),
+                            c = s[D] || d[D] || "",
+                            u = s[C],
+                            p = u ? u + "/v2/track" : d.endpointUrl,
+                            (l = []).push((n = "SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",
+                            a = t,
+                            i = p,
+                            (o = (r = v(c, "Exception")).data).baseType = "ExceptionData",
+                            o.baseData.exceptions = [{
+                                typeName: "SDKLoadFailed",
+                                message: n.replace(/\./g, "-"),
+                                hasFullStack: !1,
+                                stack: n + "\nSnippet failed to load [" + a + "] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: " + (S && S.pathname || "_unknown_") + "\nEndpoint: " + i,
+                                parsedStack: []
+                            }],
+                            r)),
+                            l.push(function(e, t, n, a) {
+                                var i = v(c, "Message")
+                                  , r = i.data;
+                                r.baseType = "MessageData";
+                                var o = r.baseData;
+                                return o.message = 'AI (Internal): 99 message:"' + ("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) (" + n + ")").replace(/\"/g, "") + '"',
+                                o.properties = {
+                                    endpoint: a
+                                },
+                                i
+                            }(0, 0, t, p)),
+                            function(e, t) {
+                                if (JSON) {
+                                    var n = T.fetch;
+                                    if (n && !y.useXhr)
+                                        n(t, {
+                                            method: N,
+                                            body: JSON.stringify(e),
+                                            mode: "cors"
+                                        });
+                                    else if (XMLHttpRequest) {
+                                        var a = new XMLHttpRequest;
+                                        a.open(N, t),
+                                        a.setRequestHeader("Content-type", "application/json"),
+                                        a.send(JSON.stringify(e))
+                                    }
+                                }
+                            }(l, p))
+                        }
+                        function i(e, t) {
+                            f || setTimeout(function() {
+                                !t && m.core || a()
+                            }, 500)
+                        }
+                        var e = function() {
+                            var n = l.createElement(k);
+                            n.src = h;
+                            var e = y[w];
+                            return !e && "" !== e || "undefined" == n[w] || (n[w] = e),
+                            n.onload = i,
+                            n.onerror = a,
+                            n.onreadystatechange = function(e, t) {
+                                "loaded" !== n.readyState && "complete" !== n.readyState || i(0, t)
+                            }
+                            ,
+                            n
+                        }();
+                        y.ld < 0 ? l.getElementsByTagName("head")[0].appendChild(e) : setTimeout(function() {
+                            l.getElementsByTagName(k)[0].parentNode.appendChild(e)
+                        }, y.ld || 0)
+                    }
+                    try {
+                        m.cookie = l.cookie
+                    } catch (p) {}
+                    function t(e) {
+                        for (; e.length; )
+                            !function(t) {
+                                m[t] = function() {
+                                    var e = arguments;
+                                    g || m.queue.push(function() {
+                                        m[t].apply(m, e)
+                                    })
+                                }
+                            }(e.pop())
+                    }
+                    var n = "track"
+                      , r = "TrackPage"
+                      , o = "TrackEvent";
+                    t([n + "Event", n + "PageView", n + "Exception", n + "Trace", n + "DependencyData", n + "Metric", n + "PageViewPerformance", "start" + r, "stop" + r, "start" + o, "stop" + o, "addTelemetryInitializer", "setAuthenticatedUserContext", "clearAuthenticatedUserContext", "flush"]),
+                    m.SeverityLevel = {
+                        Verbose: 0,
+                        Information: 1,
+                        Warning: 2,
+                        Error: 3,
+                        Critical: 4
+                    };
+                    var s = (d.extensionConfig || {}).ApplicationInsightsAnalytics || {};
+                    if (!0 !== d[I] && !0 !== s[I]) {
+                        var c = "onerror";
+                        t(["_" + c]);
+                        var u = T[c];
+                        T[c] = function(e, t, n, a, i) {
+                            var r = u && u(e, t, n, a, i);
+                            return !0 !== r && m["_" + c]({
+                                message: e,
+                                url: t,
+                                lineNumber: n,
+                                columnNumber: a,
+                                error: i
+                            }),
+                            r
+                        }
+                        ,
+                        d.autoExceptionInstrumented = !0
+                    }
+                    return m
+                }(y.cfg);
+                function a() {
+                    y.onInit && y.onInit(n)
+                }
+                (T[t] = n).queue && 0 === n.queue.length ? (n.queue.push(a),
+                n.trackPageView({})) : a()
+            }(window, document, {
+                src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js",
+                // The SDK URL Source
+                // name: "appInsights", // Global SDK Instance name defaults to "appInsights" when not supplied
+                // ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
+                // useXhr: 1, // Use XHR instead of fetch to report failures (if available),
+                crossOrigin: "anonymous",
+                // When supplied this will add the provided value as the cross origin attribute on the script tag
+                // onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
+                cfg: {
+                    // Application Insights Configuration
+                    instrumentationKey: "1a39c890-854e-42e0-97da-0acb8a39c535",
+                    disableFetchTracking: false
+                }
+            });
+        </script>
+        <style>
+            .loading-screen {
+                align-items: center;
+                color: #202327;
+                display: flex;
+                flex-flow: column nowrap;
+                font-family: "noto_sansregular",sans-serif;
+                justify-content: center;
+                letter-spacing: 0;
+                margin: 0 auto;
+                max-width: 1024px;
+                min-width: 375px;
+                text-align: center;
+                width: 100%
+            }
+
+            .loading-screen .header-wrapper {
+                background-color: #fff;
+                box-shadow: 0 6px 10px 0 rgba(0,0,0,.03);
+                margin-bottom: 47px;
+                text-align: left;
+                width: 100%
+            }
+
+            .loading-screen .header-wrapper header {
+                display: flex;
+                justify-content: center;
+                padding: 47px 62px;
+                width: 100%
+            }
+
+            .loading-screen .header-wrapper header img {
+                height: 37px;
+                width: 250px
+            }
+
+            @media only screen and (min-width: 577px) {
+                .loading-screen .header-wrapper header {
+                    justify-content:left;
+                    padding: 47px 0 47px 47px
+                }
+            }
+
+            @media only screen and (min-width: 992px) {
+                .loading-screen .header-wrapper header {
+                    margin:0 auto;
+                    width: 1024px
+                }
+            }
+
+            .loading-screen .loading-spinner {
+                position: relative;
+                margin: 18px auto;
+                width: 40px
+            }
+
+            .loading-screen .loading-spinner:before {
+                content: "";
+                display: block;
+                padding-top: 100%
+            }
+
+            .loading-screen .loading-spinner .circular {
+                animation: rotate 2s linear infinite;
+                height: 100%;
+                transform-origin: center center;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto
+            }
+
+            .loading-screen .loading-spinner .path {
+                stroke: #1294ef;
+                stroke-dasharray: 1,200;
+                stroke-dashoffset: 0;
+                animation: dash 1.3s ease-in-out infinite;
+                stroke-linecap: square
+            }
+
+            .loading-screen .loading-text {
+                color: #5f6875;
+                font: 20px "noto_sansbold",sans-serif;
+                line-height: 28px;
+                max-width: 344px
+            }
+
+            @media only screen and (min-width: 577px) {
+                .loading-screen .loading-text {
+                    max-width:605px
+                }
+            }
+
+            @keyframes rotate {
+                100% {
+                    transform: rotate(360deg)
+                }
+            }
+
+            @keyframes dash {
+                0% {
+                    stroke-dasharray: 1,200;
+                    stroke-dashoffset: 0
+                }
+
+                50% {
+                    stroke-dasharray: 89,200;
+                    stroke-dashoffset: -35px
+                }
+
+                100% {
+                    stroke-dasharray: 89,200;
+                    stroke-dashoffset: -124px
+                }
+            }
+
+            .hidden {
+                display: none
+            }
+
+            .ie-11 {
+                letter-spacing: 0;
+                margin: 0 auto;
+                max-width: 1024px;
+                min-width: 375px;
+                width: 100%
+            }
+
+            .ie-11 .ie11-content {
+                margin: 0 0 0 39px
+            }
+
+            @media only screen and (min-width: 577px) {
+                .ie-11 .ie11-content {
+                    display:flex;
+                    flex-flow: row wrap;
+                    justify-content: center
+                }
+            }
+
+            .ie-11 .ie11-content .content-column {
+                display: flex;
+                flex-flow: column nowrap
+            }
+
+            .ie-11 .ie11-content .content-column .browser-link {
+                align-items: center;
+                border-bottom: none;
+                display: flex;
+                height: 72px;
+                padding: 19px 0 17px 16px;
+                margin-bottom: 8px;
+                width: 223px
+            }
+
+            .ie-11 .ie11-content .content-column .browser-link.safari-browser {
+                display: none;
+            }
+
+            .ie-11.mac .ie11-content .content-column .browser-link.safari-browser {
+                display: flex;
+            }
+
+            .ie-11.mac .ie11-content .content-column .browser-link.windows-browser {
+                display: none;
+            }
+
+            .ie-11 .ie11-content .content-column .browser-link .browser-icon {
+                height: 36px;
+                margin-right: 18px;
+                width: 36px
+            }
+
+            .ie-11 .ie11-content .content-column .browser-link .browser-title {
+                color: #403F4C;
+                font: 18px "noto_sansregular", sans-serif;
+                letter-spacing: 0;
+                line-height: 28px
+            }
+
+            .ie-11 .ie11-content .content-column .browser-link .install {
+                color: #1294ef;
+                font: 14px "noto_sansmedium", sans-serif;
+                letter-spacing: 0;
+                line-height: 24px
+            }
+
+            .ie-11 .ie11-content .content-column .browser-link:hover {
+                background-color: #F2F3F7;
+                border-radius: 12px
+            }
+
+            .ie-11 .ie11-content .content-column .browser-link:lang(fr) {
+                width: 240px
+            }
+
+            .ie-11 .ie11-content .content-column .ie11-headers {
+                letter-spacing: 0
+            }
+
+            .ie-11 .ie11-content .content-column .ie11-headers .ie11-subtitle {
+                color: #737F8E;
+                font: 18px "noto_sanssemibold", sans-serif;
+                height: 56px;
+                line-height: 28px;
+                margin-bottom: 32px;
+                width: 395px
+            }
+
+            .ie-11 .ie11-content .content-column .ie11-headers .ie11-title {
+                color: #403F4C;
+                font: 30px "noto_sansbold", sans-serif;
+                line-height: 40px;
+                margin-bottom: 8px;
+                width: 449px
+            }
+
+            .ie-11 .ie11-content .ie11-image {
+                margin-bottom: 44px;
+                height: 221px;
+                width: 352px
+            }
+
+            @media only screen and (min-width: 577px) {
+                .ie-11 .ie11-content .ie11-image {
+                    margin:52px 67px 44px 0
+                }
+            }
+
+            .ie-11 .header-wrapper {
+                background-color: #fff;
+                box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.03);
+                margin-bottom: 47px;
+                text-align: left;
+                width: 100%
+            }
+
+            .ie-11 .header-wrapper header {
+                display: flex;
+                justify-content: center;
+                padding: 47px 62px;
+                width: 100%
+            }
+
+            .ie-11 .header-wrapper header img {
+                height: 37px;
+                width: 250px
+            }
+
+            @media only screen and (min-width: 577px) {
+                .ie-11 .header-wrapper header {
+                    justify-content:flex-start;
+                    padding: 47px 0 47px 47px
+                }
+            }
+
+            @media only screen and (min-width: 992px) {
+                .ie-11 .header-wrapper header {
+                    margin:0 auto;
+                    width: 1024px
+                }
+            }
+        </style>
+        <link id="reportStyle" rel="stylesheet">
+        <script id="reportScript"></script>
+        <style id="reportFonts">
+            @font-face {
+                font-family: 'noto_sansbold';
+                src: url('/fonts/notosans-bold-webfont.woff2') format('woff2'), url('/fonts/notosans-bold-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal
+            }
+
+            @font-face {
+                font-family: 'noto_sansmedium';
+                src: url('/fonts/notosans-medium-webfont.woff2') format('woff2'), url('/fonts/notosans-medium-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal
+            }
+
+            @font-face {
+                font-family: 'noto_sansregular';
+                src: url('/fonts/notosans-regular-webfont.woff2') format('woff2'), url('/fonts/notosans-regular-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal
+            }
+
+            @font-face {
+                font-family: 'noto_sanssemibold';
+                src: url('/fonts/notosans-semibold-webfont.woff2') format('woff2'), url('/fonts/notosans-semibold-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal
+            }
+
+            @font-face {
+                font-family: 'noto_sanslight';
+                src: url('/fonts/notosans-light-webfont.woff2') format('woff2'), url('/fonts/notosans-light-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal
+            }
+
+            @font-face {
+                font-family: 'vhr-icons';
+                src: url('/fonts/vhr-icons.woff2?92941242') format('woff2'), url('/fonts/vhr-icons.woff?92941242') format('woff');
+                font-weight: normal;
+                font-style: normal
+            }
+        </style>
+        <script>
+            function isItMac() {
+                user_agent = navigator.userAgent;
+                var is_it_mac = user_agent.indexOf("Macintosh") > -1 || user_agent.indexOf("Mac OS") > -1;
+                return is_it_mac;
+            }
+
+            function isItOutOfDate() {
+                var out_of_date = String.prototype.replaceAll === undefined;
+                return out_of_date;
+            }
+
+            function GetLoadingText(i) {
+                if (i === 0) {
+                    return "Reviewing billions of data records...";
+                }
+                if (i === 1) {
+                    return "Checking for possible damage, open recalls, service history and more...";
+                }
+                if (i === 2) {
+                    return "Retrieving all available data from North America\u0027s largest vehicle history network...";
+                }
+                if (i === 3) {
+                    return "Putting it all together...";
+                }
+                if (i === 4) {
+                    const lang = document.getElementsByTagName("HTML")[0].getAttribute("lang");
+                    window.location.pathname = "/" + lang + "/Error";
+                    return "Putting it all together...";
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", function() {
+                if (isItOutOfDate()) {
+                    if (isItMac()) {
+                        document.querySelector(".ie-11.hidden").classList.add("mac");
+                    }
+
+                    document.querySelector(".ie-11.hidden").classList.remove("hidden");
+                    document.querySelector(".loading-screen").style.display = "none";
+                } else {
+                    for (i = 0; i < 5; i++) {
+                        (function(index) {
+                            setTimeout(function() {
+                                if (document.querySelector('.loading-screen').dataset.loaded === 'false') {
+                                    document.querySelector('.loading-text').innerText = GetLoadingText(index);
+                                }
+                            }, 6000 + 6000 * index);
+                        }
+                        )(i);
+                    }
+                }
+            });
+        </script>
+        <script>
+            let reportJson = {};
+            if (isItOutOfDate() === false) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const bypass = urlParams.get("bypass");
+                const sampleReport = location.pathname.indexOf("sample") !== -1
+
+                const ref = "";
+
+                fetch(`/Json/GetData?id=${encodeURIComponent(urlParams.get("id"))}${bypass !== null ? `&bypass=${bypass}` : ""}${sampleReport ? `&sample=${location.pathname.includes("/sample/vhrlc") ? 1 : 2}` : ""}${ref !== null && ref !== "" ? `&ref=${ref}` : ""}`, {
+                    method: "POST"
+                }).then(response=>{
+                    if (response.ok === false) {
+                        throw new Error("GetData fail");
+                    }
+                    return response.json();
+                }
+                ).then(jsonData=>{
+                    if (jsonData.hasOwnProperty("url")) {
+                        const lang = document.getElementsByTagName("HTML")[0].getAttribute("lang");
+                        if (lang === "fr") {
+                            window.location = `/${lang}/${jsonData.url}`;
+                        } else {
+                            window.location = `/${jsonData.url}`;
+                        }
+                    } else {
+                        reportJson = jsonData;
+
+                        if (jsonData.IsReportComplete === false) {
+                            setTimeout(function() {
+                                location.reload()
+                            }, 30000);
+                        }
+                        document.getElementById("vhr").dataset.imageSrc = `https://cdn.carfax.ca/vehicle-history/images/${reportJson.ImageVersion}`;
+
+                        //AddFonts
+                        const fontStyle = document.getElementById("reportFonts");
+
+                        fontStyle.textContent = `@font-face{font-family:'noto_sansbold';src:url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-bold-webfont.woff2') format('woff2'), url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-bold-webfont.woff') format('woff');font-weight:normal;font-style:normal}@font-face{font-family:'noto_sansmedium';src:url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-medium-webfont.woff2') format('woff2'), url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-medium-webfont.woff') format('woff');font-weight:normal;font-style:normal}@font-face{font-family:'noto_sansregular';src:url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-regular-webfont.woff2') format('woff2'), url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-regular-webfont.woff') format('woff');font-weight:normal;font-style:normal}@font-face{font-family:'noto_sanssemibold';src:url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-semibold-webfont.woff2') format('woff2'), url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-semibold-webfont.woff') format('woff');font-weight:normal;font-style:normal}@font-face{font-family:'noto_sanslight';src:url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-light-webfont.woff2') format('woff2'), url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/notosans-light-webfont.woff') format('woff');font-weight:normal;font-style:normal}@font-face{font-family:'vhr-icons';src:url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/vhr-icons.woff2?92941242') format('woff2'), url('https://cdn.carfax.ca/vehicle-history/fonts/${reportJson.FontVersion}/vhr-icons.woff?92941242') format('woff');font-weight:normal;font-style:normal}`;
+                        document.head.appendChild(fontStyle);
+
+                        //Add CSS
+                        const styleUrl = `https://cdn.carfax.ca/vehicle-history/${reportJson.Version}/css/vhr.${reportJson.Version}.css`;
+                        const reportStyle = document.getElementById("reportStyle");
+                        if (reportStyle !== null) {
+                            reportStyle.setAttribute("href", styleUrl);
+                        }
+
+                        //Add Script
+                        const scriptUrl = `https://cdn.carfax.ca/vehicle-history/${reportJson.Version}/js/vhr.${reportJson.Version}.js`;
+                        const reportScript = document.getElementById("reportScript");
+                        if (reportScript !== null) {
+                            reportScript.setAttribute("src", scriptUrl);
+                            reportScript.setAttribute("crossorigin", "anonymous")
+                        }
+
+                        //Set version element
+                        document.getElementById("version").textContent = reportJson.Version;
+
+                        document.querySelector('.loading-screen').dataset.loaded = 'true';
+                        document.querySelector(".loading-screen").style.display = "none";
+                    }
+                }
+                ).catch(error=>{
+                    const lang = document.getElementsByTagName("HTML")[0].getAttribute("lang");
+                    if (lang === "fr") {
+                        window.location = `/${lang}/Error`;
+                    } else {
+                        window.location = `/Error`;
+                    }
+                }
+                );
+            }
+        </script>
+        <!-- Google Tag Manager -->
+        <script>
+            (function(w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({
+                    'gtm.start': new Date().getTime(),
+                    event: 'gtm.js'
+                });
+                var f = d.getElementsByTagName(s)[0]
+                  , j = d.createElement(s)
+                  , dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl + '&gtm_auth=YwYYeQdk2kllffq-WNJ00Q&gtm_preview=env-2&gtm_cookies_win=x';
+                f.parentNode.insertBefore(j, f);
+            }
+            )(window, document, 'script', 'dataLayer', 'GTM-PBFCH7V');
+        </script>
+        <!-- End Google Tag Manager -->
+    </head>
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBFCH7V&gtm_auth=YwYYeQdk2kllffq-WNJ00Q&gtm_preview=env-2&gtm_cookies_win=x" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <div class="ie-11 hidden">
+            <div class="header-wrapper">
+                <header>
+                    <img class="logo" src="/images/carfax-canada.svg" alt="Carfax Canada">
+                </header>
+            </div>
+            <div class="ie11-content">
+                <img class="ie11-image" src="/images/ie11-download.svg"/>
+                <div class="content-column">
+                    <div class="ie11-headers">
+                        <h3 class="ie11-title">Looks like your internet browser isn &#x27;t supported</h3>
+                        <p class="ie11-subtitle">Upgrade to one of these browsers to view your report</p>
+                    </div>
+                    <div>
+                        <a href="https://www.google.com/intl/en_ca/chrome/" class="browser-link">
+                            <img class="browser-icon" src="/images/chrome.png"/>
+                            <div>
+                                <p class="browser-title">Google Chrome</p>
+                                <p class="install">Install for free</p>
+                            </div>
+                        </a>
+                        <a href="https://www.mozilla.org/en-CA/firefox/new/" class="browser-link">
+                            <img class="browser-icon" src="/images/firefox.png"/>
+                            <div>
+                                <p class="browser-title">Firefox</p>
+                                <p class="install">Install for free</p>
+                            </div>
+                        </a>
+                        <a class="browser-link windows-browser" href="https://www.microsoft.com/en-us/edge">
+                            <img class="browser-icon" src="/images/edge.png"/>
+                            <div>
+                                <p class="browser-title">Edge</p>
+                                <p class="install">Install for free</p>
+                            </div>
+                        </a>
+                        <a class="browser-link safari-browser" href="https://support.apple.com/en-ca/HT204416">
+                            <img class="browser-icon" src="/images/safari.png" alt="Safari Internet Adventure Weeeee"/>
+                            <div>
+                                <p class="browser-title">Safari</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loading-screen" data-loaded="false">
+            <div class="header-wrapper">
+                <header>
+                    <img class="logo" src="/images/carfax-canada.svg" alt="Carfax Canada">
+                </header>
+            </div>
+            <section id="loading">
+                <div class="loading-spinner">
+                    <svg class="circular" viewBox="25 25 50 50">
+                        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="5" stroke-miterlimit="10"/>
+                    </svg>
+                </div>
+                <p class="loading-text">We &#x2019;re on it! Collecting data from thousands of sources to prepare your report...</p>
+            </section>
+        </div>
+        <vhr-base id="vhr"></vhr-base>
+        <span id="version" class="vhr-version"></span>
+        <script>
+            var serviceHistorySection = document.getElementById("service-history-section");
+            if (serviceHistorySection !== null) {
+                serviceHistorySection.addEventListener("click", function(event) {
+                    if (event.target.classList.contains("service-history-sort")) {
+                        dataLayer.push({
+                            'event': 'buttonClick',
+                            'eventCategory': 'VHR',
+                            'buttonName': 'Service Records - Sorted by Date'
+                        });
+                    }
+                });
+            }
+            var detailedHistorySection = document.getElementById("detailed-history-section");
+            if (detailedHistorySection !== null) {
+                detailedHistorySection.addEventListener("click", function(event) {
+                    if (event.target.classList.contains("detailed-history-sort")) {
+                        dataLayer.push({
+                            'event': 'buttonClick',
+                            'eventCategory': 'VHR',
+                            'buttonName': 'Detailed History - Sorted by Date'
+                        });
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
