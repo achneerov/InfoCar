@@ -18,6 +18,9 @@ car fax does the following.
     Detailed History
         - Registration Issued or Renewed
 
+strat:
+first throw vin into big function, then after that split it up, then at the end end up with big json that we send
+back to website
 
 example with accident
 https://vhr.carfax.ca/?id=/BKZwwiMWvgBNma08mm5JIxHLWpkn+y2
@@ -30,8 +33,7 @@ idk if it works tho lol
 this to get name, year, make, where it was manufactured
 https://www.carfax.ca/vin-decode?vin=3FADP4AJ2FM124603
 alternative
-https://vpic.nhtsa.dot.gov/decoder/Decoder
-
+https://vpic.nhtsa.dot.gov/decoder
 
 this to get recals for all different car brands
 https://tc.canada.ca/en/road-transportation/defects-recalls-vehicles-tires-child-car-seats/find-vehicle-tire-child-car-seat-manufacturer#toc1
@@ -44,3 +46,11 @@ possible lead for collision info:
 https://open.canada.ca/data/en/dataset/1eb9eba7-71d1-4b30-9fb1-30cbdab7e63a#
 or maybe this
 https://open.canada.ca/data/en/dataset/aeb3233c-f8ce-40e2-a90d-ee70f2581b24/resource/47dc2174-678f-4f1e-905e-81d8ae532ef3
+this was also mentioned:
+https://www.donneesquebec.ca/recherche/fr/dataset/rapports-d-accident
+
+
+
+good examples:
+accident + rebuilt
+https://vhr.carfax.ca/?id=AufES1OypB+BGdP/7hkA4ANl7Z/oFBMA
