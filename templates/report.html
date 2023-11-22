@@ -7,20 +7,20 @@
     <p>This is an example of a simple HTML page with one paragraph.</p>
 
     <script>
-        // Function to get the value of a query parameter from the URL
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+        // Function to get the value after the first slash in the URL path
+        function getValueFromPath() {
+            const pathSegments = window.location.pathname.split('/');
+            return pathSegments[1]; // Assumes the value is immediately after the first slash
         }
 
-        // Get the VIN from the URL
-        const vin = getQueryParam('vin');
+        // Get the value from the URL path
+        const value = getValueFromPath();
 
-        // Print the VIN
-        if (vin) {
-            document.write('<p>VIN: ' + vin + '</p>');
+        // Print the value
+        if (value) {
+            document.write('<p>Value: ' + value + '</p>');
         } else {
-            document.write('<p>No VIN found in the URL.</p>');
+            document.write('<p>No value found in the URL path.</p>');
         }
     </script>
 </body>
