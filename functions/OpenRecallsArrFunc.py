@@ -44,21 +44,19 @@ def open_recalls_arr(VIN, make):
             submit_button = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, 'op-cta')))
             submit_button.click()
 
-            # Wait for 15 seconds after clicking the submit button (you may need to adjust the sleep duration)
-            time.sleep(15)
+            # Wait for the recalls section to load
+            recalls_section = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'op-safety-recalls')))
 
-            # Get the updated page source after form submission
-            updated_page_source = driver.page_source
+            # Parse the HTML content
+            soup = BeautifulSoup(driver.page_source, 'html.parser')
+            recall_codes = soup.select('.op-safety-recalls__cell-value')
+            recall_titles = soup.select('.op-safety-recalls__accordion-content-heading')
+            recall_descs = soup.select('.op-safety-recalls__accordion-content-description')
 
-            # Parse the updated HTML content
-            soup = BeautifulSoup(updated_page_source, 'html.parser')
-
-            # Find the section with the specified class
-            recalls_section = soup.find('section', class_='op-safety-recalls')
-
-            # Print the HTML content of the found section
-            if recalls_section:
-                print(recalls_section.prettify())
+            if recall_codes:
+                print([code.text for code in recall_codes])
+                print([title.text for title in recall_titles])
+                print([desc.text for desc in recall_descs])
             else:
                 print("No recalls section found.")
 
@@ -73,4 +71,4 @@ def open_recalls_arr(VIN, make):
 
 # Example usage:
 # VIN and make parameters are not used in the provided code, you might want to incorporate them as needed.
-open_recalls_arr("5XYZUDLB1HG476246", "hyundai")
+recalls_array = open_recalls_arr("5XYZUDLB1HG476246", "hyundai")
