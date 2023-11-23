@@ -49,16 +49,19 @@ def open_recalls_arr(VIN, make):
 
             # Parse the HTML content
             soup = BeautifulSoup(driver.page_source, 'html.parser')
-            recall_codes = soup.select('.op-safety-recalls__cell-value')
+            #print(soup.find(class_='op-safety-recalls'))
+            #recall_codes = soup.select('.op-safety-recalls__cell-value recall-number')
+            recall_codes = soup.select('.op-safety-recalls__cell.recall-number')
             recall_titles = soup.select('.op-safety-recalls__accordion-content-heading')
             recall_descs = soup.select('.op-safety-recalls__accordion-content-description')
 
+            recallArr = []
+
             if recall_codes:
-                print([code.text for code in recall_codes])
-                print([title.text for title in recall_titles])
-                print([desc.text for desc in recall_descs])
+                for i in range(len(recall_codes)):
+                    recallArr.append([recall_codes[i].text.strip(), recall_titles[i].text.strip(), recall_descs[i].text.strip()])
             else:
-                print("No recalls section found.")
+                return "No recalls section found."
 
         except Exception as e:
             print(f"An error occurred: {str(e)}")
@@ -66,9 +69,9 @@ def open_recalls_arr(VIN, make):
         finally:
             # Close the browser
             driver.quit()
-
-    return ["Unknown Vehicle"]
+    #print(recallArr)
+    return recallArr
 
 # Example usage:
 # VIN and make parameters are not used in the provided code, you might want to incorporate them as needed.
-recalls_array = open_recalls_arr("5XYZUDLB1HG476246", "hyundai")
+#recalls_array = open_recalls_arr("5XYZUDLB1HG476246", "hyundai")
