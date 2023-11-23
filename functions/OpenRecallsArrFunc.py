@@ -53,9 +53,14 @@ def open_recalls_arr(VIN, make):
             # Parse the updated HTML content
             soup = BeautifulSoup(updated_page_source, 'html.parser')
 
-            # Print the entire HTML content of the page
-            print(soup.prettify())
+            # Find the section with the specified class
+            recalls_section = soup.find('section', class_='op-safety-recalls')
 
+            # Print the HTML content of the found section
+            if recalls_section:
+                print(recalls_section.prettify())
+            else:
+                print("No recalls section found.")
 
         except Exception as e:
             print(f"An error occurred: {str(e)}")
