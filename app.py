@@ -1,12 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 
 from functions.YearMakeModelArrFunc import year_make_model_arr
-from functions.AccidentDamageArrFunc import accident_damage_arr
-from functions.RegistrationArrFunc import registration_arr
-from functions.ServiceRecordsArrFunc import service_records_arr
 from functions.Recalls.OpenRecallsArrFunc import open_recalls_arr
+from functions.Recalls.OpenRecallsArrFunc import open_recalls_arr_test
 from functions.StolenVehicleArrFunc import stolen_vehicle_arr
-from functions.DetailedHistoryArrFunc import detailed_history_arr
 
 app = Flask(__name__)
 
@@ -19,21 +16,13 @@ def generate_report():
     vin = request.form['vin']
 
     p0 = year_make_model_arr(vin)
-    p1 = accident_damage_arr(vin)
-    p2 = registration_arr(vin)
-    p3 = service_records_arr(vin)
-    p4 = open_recalls_arr(vin, p0[1])
-    p5 = stolen_vehicle_arr(vin)
-    p6 = detailed_history_arr(vin)
+    p1 = open_recalls_arr_test(vin, p0[1])
+    p2 = stolen_vehicle_arr(vin)
 
     result = {
         "YearMakeModel": p0,
-        "AccidentDamage": p1,
-        "Registration": p2,
-        "ServiceRecords": p3,
-        "OpenRecalls": p4,
-        "StolenVehicleCheck": p5,
-        "DetailedHistory": p6,
+        "OpenRecalls": p1,
+        "StolenVehicleCheck": p2,
     }
 
     return jsonify(result=result)
