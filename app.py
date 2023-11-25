@@ -4,7 +4,7 @@ from functions.YearMakeModelArrFunc import year_make_model_arr
 from functions.AccidentDamageArrFunc import accident_damage_arr
 from functions.RegistrationArrFunc import registration_arr
 from functions.ServiceRecordsArrFunc import service_records_arr
-from functions.OpenRecallsArrFunc import open_recalls_arr
+from functions.Recalls.OpenRecallsArrFunc import open_recalls_arr
 from functions.StolenVehicleArrFunc import stolen_vehicle_arr
 from functions.DetailedHistoryArrFunc import detailed_history_arr
 
