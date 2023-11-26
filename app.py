@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, jsonify
-
 from functions.YearMakeModelArrFunc import year_make_model_arr
 from functions.Recalls.OpenRecallsArrFunc import open_recalls_arr
 from functions.Recalls.OpenRecallsArrFunc import open_recalls_arr_test
 from functions.StolenVehicleArrFunc import stolen_vehicle_arr
+from functions.StolenVehicleArrFunc import stolen_vehicle_arr_test
+
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ def generate_report():
 
     p0 = year_make_model_arr(vin)
     p1 = open_recalls_arr_test(vin, p0[1])
-    p2 = stolen_vehicle_arr(vin)
+    p2 = stolen_vehicle_arr_test(vin)
 
     result = {
         "YearMakeModel": p0,

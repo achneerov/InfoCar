@@ -4,27 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle History Report</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        .report-header {
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-
-        .report-section {
-            margin-top: 20px;
-        }
-
-        .service-records {
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
+    <div id="infocar-container">
+        <div id="infocar">INFOCAR</div>
+        <table>
+            <tr>
+                <td>Vehicle History Report #1</td>
+            </tr>
+            <tr>
+                <td>Report Date:</td>
+                <td id="reportDate"><!-- Display report date here --></td>
+            </tr>
+            <tr>
+                <td>Report Status: Complete</td>
+            </tr>
+        </table>
+    </div>
+
     <div class="report-header" id="reportDate">
         <!-- Display report date here -->
     </div>
@@ -39,36 +38,5 @@
     <div class="report-section" id="stolenVehicleSection">
         <!-- Display stolen vehicle check here -->
     </div>
-    <script>
-        window.onload = function() {
-            const vinFromUrl = window.location.pathname.split('/').pop();
-            if (vinFromUrl) {
-                generateReport(vinFromUrl);
-            }
-        };
-
-        function generateReport(VIN) {
-            // Make an AJAX request to the Flask server
-            fetch('/generate_report', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({
-                    'vin': VIN,
-                }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('reportDate').innerHTML = `Report Date: ${new Date().toLocaleString()}`;
-                document.getElementById('yearMakeModelSection').innerHTML = `<h2>${data.result.YearMakeModel.join(' ')}</h2>`;
-                document.getElementById('openRecallsSection').innerHTML = `<h2>Open Recalls</h2>
-                    <p>${data.result.OpenRecalls}</p>`;
-                document.getElementById('stolenVehicleSection').innerHTML = `<h2>Stolen Vehicle Check</h2>
-                    <p>${data.result.StolenVehicleCheck}</p>`;
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    </script>
 </body>
 </html>

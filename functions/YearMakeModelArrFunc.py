@@ -1,5 +1,8 @@
 import requests
 
+def year_make_model_arr_test(VIN):
+    return ['2017', 'HYUNDAI', 'Santa Fe']
+
 def year_make_model_arr(VIN):
     url = f'https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinExtended/{VIN}?format=json&modelyear=2011/440?format=json'
     r = requests.get(url)
@@ -26,6 +29,7 @@ def year_make_model_arr(VIN):
         model = model_info["Value"] if model_info else None
         vehicle_info.append(model)
 
+        print(vehicle_info)
         return vehicle_info
     else:
         # If the request was not successful, print an error message
