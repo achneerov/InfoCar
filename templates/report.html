@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle History Report</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
-    <div id="infocar-container">
+    <div id="top-container">
         <div id="infocar">INFOCAR</div>
         <table>
             <tr>
                 <td>Vehicle History Report #1</td>
             </tr>
             <tr>
-                <td>Report Date:</td>
                 <td id="reportDate"><!-- Display report date here --></td>
             </tr>
             <tr>
@@ -23,18 +22,12 @@
             </tr>
         </table>
     </div>
-
-    <div class="report-header" id="reportDate">
-        <!-- Display report date here -->
-    </div>
-
     <div class="report-section" id="yearMakeModelSection">
         <!-- Display year, make, and model here -->
     </div>
     <div class="report-section" id="openRecallsSection">
         <!-- Display open recalls here -->
     </div>
-
     <div class="report-section" id="stolenVehicleSection">
         <!-- Display stolen vehicle check here -->
     </div>
