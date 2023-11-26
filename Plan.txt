@@ -61,3 +61,6 @@ https://vhr.carfax.ca/?id=vW+qa3yAhXVwP7Zs+9f8kjprz8qBphK8#accident-damage-secti
 
 4 open recalls
 https://vhr.carfax.ca/?id=A5OA5ynQ+KJu1j2rFWdckpOmnqR4Cny5
+
+<p id="Example">JM1DE1HY9B0101995</p>
+<p id="Example">5XYZUDLB1HG476246</p>

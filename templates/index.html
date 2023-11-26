@@ -7,19 +7,29 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='path/to/google-fonts.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+    <style>
+        body {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #vinForm {
+            width: 300px; /* Adjust the width as needed */
+        }
+    </style>
 </head>
 <body>
-    <div>
-        <form id="vinForm">
-            <label for="vinInput">Enter VIN:</label>
-            <input type="text" id="vinInput" name="vinInput" required>
-            <button type="button" onclick="redirectToNewURL()">Generate Report</button>
-        </form>
-    </div>
-    <div class="report-header">
-        <p id="Example">JM1DE1HY9B0101995</p>
-        <p id="Example">5XYZUDLB1HG476246</p>
-    </div>
+    <form id="vinForm">
+        <label for="vinInput">Enter VIN:</label>
+        <input type="text" id="vinInput" name="vinInput" required>
+        <button type="button" onclick="redirectToNewURL()">Generate Report</button>
+    </form>
+    
+    
     <script>
         function redirectToNewURL() {
             let VIN = document.getElementById('vinInput').value;

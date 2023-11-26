@@ -7,26 +7,27 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='path/to/google-fonts.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
-
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <style>
+        body {
+            padding: 80px; /* Adjust the value as needed */
+        }
+    </style>
 </head>
 <body>
-    <div id="top-container">
-        <div id="left1">INFOCAR</div>
-        <div id = "right1">
-            <table>
-                <tr>
-                    <td>Vehicle History Report #1</td>
-                </tr>
-                <tr>
-                    <td id="reportDate"><!-- Display report date here --></td>
-                </tr>
-                <tr>
-                    <td>Report Status: Complete</td>
-                </tr>
-            </table>
-        </div>
-    </div>
+    
+    <h1>INFOCAR</h1>
+    <table>
+        <tr>
+            <td>Vehicle History Report #1</td>
+        </tr>
+        <tr>
+            <td id="reportDate"><!-- Display report date here --></td>
+        </tr>
+        <tr>
+            <td>Report Status: Complete</td>
+        </tr>
+    </table>
     <div class="report-section" id="yearMakeModelSection">
         <!-- Display year, make, and model here -->
     </div>
