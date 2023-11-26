@@ -1,25 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-}
-
-.report-header {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.report-section {
-    margin-top: 20px;
-}
-
-.service-records {
-    margin-top: 10px;
-}
-
-#infocar {
-    font-weight: bold;
-    font-size: 25px;
-    text-align: left;
+    padding: 200px;
 }
 
 #top-container {
@@ -28,12 +10,60 @@ body {
     align-items: center;
 }
 
-table {
+#left1 {
+    font-weight: bold;
+    font-size: 40px;
+    text-align: left;
+}
+
+#right1 {
     border-collapse: collapse;
     width: 100%;
     text-align: right;
 }
 
-table, th, td {
+#right1 table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#right1 td {
+    text-align: right;
     border: none;
+}
+
+.report-section {
+    margin-top: 20px;
+}
+
+/* Add these styles to your existing CSS or create a new style block */
+
+/* Style for the table */
+#openRecallsSection table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Style for table headers */
+#openRecallsSection th {
+    background-color: #f2f2f2; /* Light gray background */
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style for even rows */
+#openRecallsSection tr:nth-child(even) {
+    background-color: #f9f9f9; /* Lighter gray background */
+}
+
+/* Style for odd rows */
+#openRecallsSection tr:nth-child(odd) {
+    background-color: #ffffff; /* White background */
+}
+
+/* Style for table cells */
+#openRecallsSection td {
+    padding: 10px;
+    border: 1px solid #ddd; /* Border between cells */
 }
